@@ -2,32 +2,69 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@font-face {
+  font-family: 'Breathing';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/Breathing.ttf') format('truetype');
+}
+.breathing{
+  font-family: 'Breathing' !important; 
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+
+.fondo-rosa {
+  /* background-color: #fff1f1; */
+  background-color: #ffd5de;
+}
+
+.fondo-rosa-2 {
+  background-color: #f6aac1;
+}
+
+.texto-rojo{
+  color: #e7191f;
+}
+
+.main-button{
+  outline: 2px solid transparent;
+  transition: all 0.3s;
+}
+
+.main-button:hover{
+  /* background-color: #e7191f !important;
+  color: #f6aac1 !important; */
+  color: white !important;
+  transition: all 0.3s;
+}
+
+.headbar-desktop{
+ display: flex;
+}
+.headbar-mobile{
+ display: none;
+}
+
+.hero-desktop{
+  display: block;
+}
+
+@media (max-width: 1280px) {
+  .hero-desktop{
+    display: none;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+
+@media (max-width: 750px) {
+  .headbar-desktop{
+    display: none;
+  }
+  .headbar-mobile{
+    display: flex;
+  }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.test{
+  border: 1px solid blue;
 }
