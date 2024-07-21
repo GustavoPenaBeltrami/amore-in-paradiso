@@ -8,8 +8,9 @@
   font-weight: 400;
   src: url('/fonts/Breathing.ttf') format('truetype');
 }
-.breathing{
-  font-family: 'Breathing' !important; 
+
+.breathing {
+  font-family: 'Breathing' !important;
 }
 
 
@@ -22,50 +23,52 @@
   background-color: #f6aac1;
 }
 
-.texto-rojo{
+.texto-rojo {
   color: #e7191f;
 }
 
-.main-button{
+.main-button {
   outline: 2px solid transparent;
   transition: all 0.3s;
 }
 
-.main-button:hover{
+.main-button:hover {
   /* background-color: #e7191f !important;
   color: #f6aac1 !important; */
   color: white !important;
   transition: all 0.3s;
 }
 
-.headbar-desktop{
- display: flex;
-}
-.headbar-mobile{
- display: none;
+.headbar-desktop {
+  display: flex;
 }
 
-.hero-desktop{
+.headbar-mobile {
+  display: none;
+}
+
+.hero-desktop {
   display: block;
 }
 
 @media (max-width: 1385px) {
-  .hero-desktop{
+  .hero-desktop {
     display: none;
   }
 }
 
 
 @media (max-width: 800px) {
-  .headbar-desktop{
+  .headbar-desktop {
     display: none;
   }
-  .headbar-mobile{
+
+  .headbar-mobile {
     display: flex;
   }
 }
 
-.test{
+.test {
   border: 1px solid blue;
 }
 
@@ -79,7 +82,7 @@
   transform: rotateY(180deg);
 }
 
-.flip-container.hover > *{
+.flip-container.hover>* {
   background-color: #f6c1d1;
 }
 
@@ -110,6 +113,13 @@
   transform: rotateY(180deg);
 }
 
-.shadow-custom{
+.shadow-custom {
   box-shadow: 10px 10px 12px rgba(0, 0, 0, 0.1);
+}
+
+.fondo-corazon {
+  background-image: url('/patron.png');
+  background-size: 400px;
+  background-repeat: repeat;
+  background-position: center;
 }

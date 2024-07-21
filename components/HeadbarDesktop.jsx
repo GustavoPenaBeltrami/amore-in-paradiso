@@ -15,7 +15,7 @@ export const HeadbarDesktop = () => {
         <Link className="hover:text-white transition-all duration-300" href="/">
           Sobre mi
         </Link>
-        <Link className="hover:text-white transition-all duration-300" href="/">
+        <Link className="hover:text-white transition-all duration-300" href="/contacto">
           Contacto
         </Link>
         {/* <Link className='fondo-rosa-2 main-button p-2 rounded-md transition-all duration-300' href='/'>Agenda tu sesión!</Link> */}
