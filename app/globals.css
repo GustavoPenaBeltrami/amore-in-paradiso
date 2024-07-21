@@ -49,14 +49,14 @@
   display: block;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1385px) {
   .hero-desktop{
     display: none;
   }
 }
 
 
-@media (max-width: 750px) {
+@media (max-width: 800px) {
   .headbar-desktop{
     display: none;
   }
@@ -67,4 +67,49 @@
 
 .test{
   border: 1px solid blue;
+}
+
+.flip-container {
+  perspective: 1000px;
+  width: 330px;
+  height: 550px;
+}
+
+.flip-container.hover .flipper {
+  transform: rotateY(180deg);
+}
+
+.flip-container.hover > *{
+  background-color: #f6c1d1;
+}
+
+.flipper {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.front,
+.back {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 7%;
+  left: 7%;
+  width: 85%;
+  height: 85%;
+}
+
+.front {
+  z-index: 2;
+  transform: rotateY(0deg);
+}
+
+.back {
+  transform: rotateY(180deg);
+}
+
+.shadow-custom{
+  box-shadow: 10px 10px 12px rgba(0, 0, 0, 0.1);
 }

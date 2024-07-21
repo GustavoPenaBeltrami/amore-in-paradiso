@@ -9,35 +9,27 @@ export const Hero = () => {
         alt="Hero"
         width={1000}
         height={1000}
-        className="rounded-xl w-[500px] absolute translate-x-[375px]"
+        className="shadow-custom rounded-xl w-[500px] absolute translate-x-[375px]"
       />
       <Image
         src="/hero-2.webp"
         alt="Hero"
         width={1000}
         height={1000}
-        className="rounded-xl w-[350px] absolute translate-x-[890px] translate-y-[230px]"
+        className="shadow-custom rounded-xl w-[350px] absolute translate-x-[890px] translate-y-[230px]"
       />
       <Image
         src="/hero-3.jpg"
         alt="Hero"
         width={1000}
         height={1000}
-        className="rounded-xl w-[400px] absolute translate-x-[475px] translate-y-[520px]"
+        className="shadow-custom rounded-xl w-[400px] absolute translate-x-[475px] translate-y-[520px]"
       />
-      <div className="absolute flex flex-col items-center translate-y-[60px] translate-x-[-12px]">
-        <h1 className=" texto-rojo flex flex-col items-center font-[600] text-center w-fit text-5xl">
-          <span className="py-3 pb-7 pr-3 bg-[#ffd5de] w-fit translate-y-[20px] rounded-xl">
-            DESCUBRÍ LA
-          </span>
-          <span className="pr-3 py-3 bg-[#ffd5de] w-fit translate-y-[-5px] rounded-xl">
-            RUTINA PERFECTA
-          </span>
-          <span className="py-3 pr-3 bg-[#ffd5de] w-fit translate-y-[-20px] rounded-xl">
-            PARA TU PIEL
-          </span>
+      <div className="absolute flex flex-col items-center translate-y-[60px] translate-x-[-45px]">
+        <h1 className=" texto-rojo flex flex-col items-center font-[700] text-center w-fit text-5xl uppercase mb-7 leading-[55px]">
+          Descubrí la <br /> <span className="translate-x-[-20px]">rutina perfecta</span>para tu piel
         </h1>
-        <p className="texto-rojo text-right w-[310px] font-medium text-md bg-[#ffd5de] translate-y-[-6px] translate-x-[-35px]">
+        <p className="texto-rojo text-right w-[310px] font-medium text-md bg-[#ffd5de] translate-y-[-6px] translate-x-[-15px] ">
           En Amore in Paradiso, valoramos profundamente el amor y la
           autenticidad. Creemos que el cuidado de la piel es una expresión de
           amor propio y queremos que cada persona se sienta única y segura en su
@@ -53,7 +45,10 @@ export const Hero = () => {
           Queremos acompañarte en cada paso de tu rutina de cuidado facial.
         </p>
       </div>
-      <Link href="/" className="w-fit absolute translate-x-[1145px] translate-y-[80px]">
+      <Link
+        href="/asesoria"
+        className="w-fit absolute translate-x-[1155px] translate-y-[80px] hover:rotate-[5deg] transition-all duration-300"
+      >
         <p className="texto-rojo font-bold absolute w-[110px] bg-[#ffd5de] p-1 translate-y-[-35px] translate-x-[50px]">
           Comenzá <br /> tu asesoría
         </p>

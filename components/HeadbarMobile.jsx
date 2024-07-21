@@ -14,7 +14,7 @@ export const HeadbarMobile = () => {
   };
 
   return (
-    <nav className="headbar-mobile texto-rojo flex flex-col items-end px-[30px] mt-10 pb-10">
+    <nav className="headbar-mobile texto-rojo flex flex-col items-end px-[30px] mt-10 pb-10 max-w-[100vw] overflow-hidden">
       <div className="flex flex-row justify-between items-center w-full">
         <Link href="/">
           <Image
@@ -34,14 +34,14 @@ export const HeadbarMobile = () => {
       </div>
       <ul
         className={`${
-          isOpen ? "translate-x-[30px]" : "translate-x-[110%]"
+          isOpen ? "translate-x-[30px]" : "translate-x-[-110%]"
         } absolute bg-[#ffd5de] w-full flex flex-col mt-36 text-lg gap-y-5 font-bold p-0 items-center transition-all duration-700 pb-5`}
       >
-        <Link className="hover:text-white transition-all duration-300" href="/">
+        <Link className="hover:text-white transition-all duration-300" href="/asesoria">
           Asesoría
         </Link>
         <Link className="hover:text-white transition-all duration-300" href="/">
-          Testimonio
+          Sobre mi
         </Link>
         <Link className="hover:text-white transition-all duration-300" href="/">
           Contacto

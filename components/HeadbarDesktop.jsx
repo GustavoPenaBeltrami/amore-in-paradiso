@@ -6,14 +6,14 @@ export const HeadbarDesktop = () => {
   return (
     <nav className="headbar-desktop texto-rojo flex justify-between items-center px-[10%] mt-10">
       <Link href="/">
-        <h2 className="breathing text-[45px] mt-2 cursor-pointer">amore in paradiso</h2>
+        <h2 className="breathing text-[35px] mt-2 cursor-pointer">amore in paradiso</h2>
       </Link>
       <ul className="flex text-lg gap-5 font-bold p-0 items-center">
-        <Link className="hover:text-white transition-all duration-300" href="/">
+        <Link className="hover:text-white transition-all duration-300" href="/asesoria">
           Asesoría
         </Link>
         <Link className="hover:text-white transition-all duration-300" href="/">
-          Testimonio
+          Sobre mi
         </Link>
         <Link className="hover:text-white transition-all duration-300" href="/">
           Contacto
