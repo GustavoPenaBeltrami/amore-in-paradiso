@@ -22,12 +22,14 @@ export const HeadbarMobile = () => {
             className={`${isOpen ? "hidden" : "block cursor-pointer"}`}
             width={75}
             height={75}
+            alt="Logo"
           />
           <Image
             src="/mobile-corazon.png"
             className={`${isOpen ? "block cursor-pointer" : "hidden"}`}
             width={74.5}
             height={74.5}
+            alt="Logo alternativo"
           />
         </Link>
         <svg xmlns="http://www.w3.org/2000/svg" width="45px" height="45px" viewBox="0 0 24 24" className="cursor-pointer" onClick={handleMenu}><path fill="currentColor" d="M4 18h16c.55 0 1-.45 1-1s-.45-1-1-1H4c-.55 0-1 .45-1 1s.45 1 1 1m0-5h16c.55 0 1-.45 1-1s-.45-1-1-1H4c-.55 0-1 .45-1 1s.45 1 1 1M3 7c0 .55.45 1 1 1h16c.55 0 1-.45 1-1s-.45-1-1-1H4c-.55 0-1 .45-1 1"/></svg>
@@ -40,7 +42,7 @@ export const HeadbarMobile = () => {
         <Link className="hover:text-white transition-all duration-300" href="/asesoria">
           Asesoría
         </Link>
-        <Link className="hover:text-white transition-all duration-300" href="/">
+        <Link className="hover:text-white transition-all duration-300" href="/sobre-mi">
           Sobre mi
         </Link>
         <Link className="hover:text-white transition-all duration-300" href="/contacto">

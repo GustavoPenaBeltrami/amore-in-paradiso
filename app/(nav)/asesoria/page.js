@@ -2,7 +2,7 @@ import { Card1, Card2, Card3, Card4 } from "@/components/card";
 import Link from "next/link";
 
 
-export default function Home() {
+export default function Asesoria() {
 
     return (
         <div className="w-[90%] max-w-[1500px] mx-auto">
@@ -10,16 +10,13 @@ export default function Home() {
                 Asesoría cosmiatrica virtual
             </h1>
 
-            <div className="mt-20 flex flex-row justify-center flex-wrap gap-8">
-
+            <div className="mt-16 flex flex-row justify-center flex-wrap gap-8">
                 <Card1 />
                 <Card2 />
                 <Card3 />
                 <Card4 />
-
             </div>
-
-            <Link href="/cuestionario" className="fondo-rosa-2 block w-fit mx-auto my-20 py-5 px-10 rounded-full texto-rojo font-bold uppercase text-lg hover:bg-[#f6c1d1] text-center transition-all duration-300"> Iniciar cuestionario personalizado</Link>
+            <Link href="/cuestionario" className="fondo-rosa-2 block w-fit mx-auto my-16 py-5 px-10 rounded-full texto-rojo font-bold uppercase text-lg hover:bg-[#f6c1d1] text-center transition-all duration-300"> Iniciar cuestionario personalizado</Link>
         </div>
     );
 }

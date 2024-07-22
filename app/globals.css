@@ -50,10 +50,16 @@
 .hero-desktop {
   display: block;
 }
+.hero-mobile {
+  display: none;
+}
 
 @media (max-width: 1385px) {
   .hero-desktop {
     display: none;
+  }
+  .hero-mobile {
+    display: block;
   }
 }
 
@@ -122,4 +128,25 @@
   background-size: 400px;
   background-repeat: repeat;
   background-position: center;
+}
+
+.cara-flexed{
+  display: none;
+}
+
+@media (min-width: 600px) {
+.cara-mobile{
+  display:grid;
+  grid-template-columns: 45% 50%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.cara-flexed{
+  display: block;
+}
+
+.cara-no-flexed{
+  display: none;
+}
 }
