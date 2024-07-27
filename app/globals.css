@@ -23,6 +23,15 @@
   background-color: #f6aac1;
 }
 
+.texto-rosa{
+  color: #f6aac1;
+}
+
+
+.borde-rosa{
+  outline: 1px solid #f6aac1;
+}
+
 .texto-rojo {
   color: #e7191f;
 }
@@ -45,6 +54,7 @@
 
 .headbar-mobile {
   display: none;
+  z-index: 100 !important;
 }
 
 .hero-desktop {
@@ -52,6 +62,7 @@
 }
 .hero-mobile {
   display: none;
+  z-index: 1;
 }
 
 @media (max-width: 1385px) {
@@ -149,4 +160,7 @@
 .cara-no-flexed{
   display: none;
 }
+}
+.opcion-cuestionario *{
+ cursor: pointer !important; 
 }

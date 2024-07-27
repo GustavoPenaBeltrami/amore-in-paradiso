@@ -64,7 +64,7 @@ export const Hero = () => {
           />
         </Link>
       </div>
-      <div className="hero-mobile max-w-[90%] mx-auto md:translate-y-[0px] translate-y-[-80px]">
+      <div className="hero-mobile z-0 max-w-[90%] mx-auto md:translate-y-[0px] translate-y-[-80px]">
         <Image
           src="/mobile-1.webp"
           alt="cosmeatria cosmetologia"

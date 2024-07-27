@@ -37,7 +37,7 @@ export const HeadbarMobile = () => {
       <ul
         className={`${
           isOpen ? "translate-x-[30px]" : "translate-x-[-110%]"
-        } absolute bg-[#ffd5de] w-full flex flex-col mt-36 text-lg gap-y-5 font-bold p-0 items-center transition-all duration-700 pb-5`}
+        } absolute bg-[#ffd5dee4] w-full flex flex-col mt-28 text-lg gap-y-5 font-bold p-0 items-center transition-all duration-700 py-3 pt-5 z-50 shadow-xl `}
       >
         <Link className="hover:text-white transition-all duration-300" href="/asesoria">
           Asesoría

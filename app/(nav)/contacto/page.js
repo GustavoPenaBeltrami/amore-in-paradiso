@@ -1,7 +1,5 @@
 'use client';
 
-import Link from 'next/link';
-
 export default function Contacto() {
     return (
         <div className="fondo-corazon mt-4 w-full h-[calc(100vh-117px)] flex justify-center md:items-center md:pt-0 pt-5">
