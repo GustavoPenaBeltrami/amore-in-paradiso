@@ -54,7 +54,6 @@
 
 .headbar-mobile {
   display: none;
-  z-index: 100 !important;
 }
 
 .hero-desktop {
@@ -62,7 +61,6 @@
 }
 .hero-mobile {
   display: none;
-  z-index: 1;
 }
 
 @media (max-width: 1385px) {
@@ -163,4 +161,69 @@
 }
 .opcion-cuestionario *{
  cursor: pointer !important; 
+}
+
+.file-upload {
+  position: relative;
+  display: inline-block;
+}
+
+.file-input {
+  display: none; /* Oculta el input real */
+}
+
+/* Estilo del modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Asegúrate de que el modal esté sobre otros elementos */
+}
+
+/* Estilo del contenido del modal */
+.modal-content {
+  position: relative;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  max-width: 90%;
+  max-height: 90%;
+  overflow: hidden;
+}
+
+/* Estilo del video */
+.modal-content video {
+  width: 100%;
+  height: auto;
+}
+
+/* Estilo del botón de captura */
+.modal-content button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f6aac1;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.modal-content button:hover {
+  background-color: #e7191f;
+}
+
+/* Estilo del botón de cerrar */
+.modal-content button.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255, 255, 255, 0.7);
 }

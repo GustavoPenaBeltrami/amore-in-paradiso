@@ -2,7 +2,7 @@
 
 export default function Contacto() {
     return (
-        <div className="fondo-corazon mt-4 w-full h-[calc(100vh-117px)] flex justify-center md:items-center md:pt-0 pt-5">
+        <div className="fondo-corazon mt-[-20px] md:mt-4 w-full h-[calc(100vh-117px)] flex justify-center items-center">
             <div className="bg-[#ffe5ea] w-[95%] max-w-[600px] h-[300px] shadow-xl rounded-2xl p-10">
                 <h1 className="texto-rojo font-bold md:text-6xl text-4xl text-center">Contacto</h1>
                 <div className="mt-10 flex flex-col gap-5 md:ml-10 ml-2">

@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const Hero = () => {
   return (
-    <>
+    <div className="z-50">
       <div className="hero-desktop">
         <Image
           src="/hero-1.webp"
@@ -64,7 +64,8 @@ export const Hero = () => {
           />
         </Link>
       </div>
-      <div className="hero-mobile z-0 max-w-[90%] mx-auto md:translate-y-[0px] translate-y-[-80px]">
+
+      <div className="hero-mobile z-50 max-w-[90%] mx-auto md:translate-y-[0px] translate-y-[-41  px]">
         <Image
           src="/mobile-1.webp"
           alt="cosmeatria cosmetologia"
@@ -123,6 +124,6 @@ export const Hero = () => {
           />
         </Link>
       </div>
-    </>
+    </div>
   );
 };
