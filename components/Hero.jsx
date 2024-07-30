@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const Hero = () => {
   return (
-    <div className="z-50">
+    <div className="z-50 overflow-hidden">
       <div className="hero-desktop">
         <Image
           src="/hero-1.webp"
@@ -65,64 +65,21 @@ export const Hero = () => {
         </Link>
       </div>
 
-      <div className="hero-mobile z-50 max-w-[90%] mx-auto md:translate-y-[0px] translate-y-[-41  px]">
-        <Image
-          src="/mobile-1.webp"
-          alt="cosmeatria cosmetologia"
-          width={1500}
-          height={1500}
-          className="max-w-[800px] w-full mx-auto"
-        />
-        <h1 className="texto-rojo font-bold text-[22px] md:text-4xl text-center mx-auto w-fit my-10">
-          DESCUBRÍ LA RUTINA PERFECTA PARA TU PIEL
-        </h1>
-        <div className="flex flex-col texto-rojo">
-          <div className="cara-mobile">
-            <div>
-              <p className="text-sm md:text-lg">
-                En Amore in Paradiso, valoramos profundamente el amor y la
-                autenticidad. Creemos que el cuidado de la piel es una expresión
-                de amor propio y queremos que cada persona se sienta única y
-                segura en su propia piel.
-              </p>
-              <p className="text-sm  md:text-lg cara-flexed mt-4">
-                En Amore in Paradiso, valoramos profundamente el amor y la
-                autenticidad. Creemos que el cuidado de la piel es una expresión
-                de amor propio y queremos que cada persona se sienta única y
-                segura en su propia piel.
-              </p>
-            </div>
-            <Image
-              src="/mobile-2.webp"
-              alt="cosmeatria cosmetologia"
-              width={1500}
-              height={1500}
-              className="my-6"
-            />
-          </div>
-
-          <p className="text-sm cara-no-flexed  md:text-lg">
-            En Amore in Paradiso, valoramos profundamente el amor y la
-            autenticidad. Creemos que el cuidado de la piel es una expresión de
-            amor propio y queremos que cada persona se sienta única y segura en
-            su propia piel.
-          </p>
-        </div>
-        <Link
-          href="/asesoria"
-          className="w-fit absolute top-[min(56vw,460px)] right-[36px] hover:rotate-[5deg] transition-all duration-300"
-        >
-          <p className="texto-rojo font-bold text-[11px] md:text-[16px] absolute w-[110px] bg-[#ffd5de] p-1 translate-y-[-33px] translate-x-[20px] rounded-2xl">
-            Comenzá <br /> tu asesoría
-          </p>
-          <Image
-            src="/boton-hero.png"
-            width={500}
-            height={500}
-            className="w-[12vw] h-[12vw]"
-            alt="Botón"
-          />
-        </Link>
+      <div className="hero-mobile w-[100vw] max-w-full absolute left-0 top-[150px] min-h-[85.5vh] p-3">
+        <h1 className="text-right font-bold texto-rojo md:text-4xl text-3xl uppercase mt-24">Descubrí <br/> la rutina perfecta <br/> para tu piel</h1>
+        <h2 className="font-semibold md:text-lg text-md texto-rojo text-right mt-10  max-w-[420px] ml-auto">
+          {" "}
+          En Amore in Paradiso, valoramos profundamente el amor y la
+          autenticidad. Creemos que el cuidado de la piel es una expresión de
+          amor propio y queremos que cada persona se sienta única y segura en su
+          propia piel.
+        </h2>
+        <h2 className="font-semibold md:text-lg text-md texto-rojo text-right mt-5 max-w-[420px] ml-auto">
+          Nuestro compromiso es brindarte una experiencia única, donde cada
+          recomendación y producto esté pensado para realzar tu belleza natural
+          y tu autenticidad.{" "}
+        </h2>
+        <Link href="/asesoria" className="block w-fit mt-20 mx-auto fondo-rosa p-3 shadow-lg rounded-xl md:text-3xl text-xl font-bold texto-rojo hover:bg-[#ffe1ea] transition-all duration-300">Comenzá tu asesoría</Link>
       </div>
     </div>
   );

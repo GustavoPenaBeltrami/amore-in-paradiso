@@ -69,6 +69,10 @@
   }
   .hero-mobile {
     display: block;
+    background-image: url('/fondo-mobile.png');
+    background-size: cover;
+    background-position: center;
+
   }
 }
 
@@ -139,26 +143,6 @@
   background-position: center;
 }
 
-.cara-flexed{
-  display: none;
-}
-
-@media (min-width: 600px) {
-.cara-mobile{
-  display:grid;
-  grid-template-columns: 45% 50%;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-}
-.cara-flexed{
-  display: block;
-}
-
-.cara-no-flexed{
-  display: none;
-}
-}
 .opcion-cuestionario *{
  cursor: pointer !important; 
 }
@@ -189,8 +173,9 @@
 /* Estilo del contenido del modal */
 .modal-content {
   position: relative;
-  background: white;
+  background:#ffe7ec ;
   padding: 20px;
+  padding-bottom: 10px;
   border-radius: 8px;
   text-align: center;
   max-width: 90%;
@@ -206,7 +191,8 @@
 
 /* Estilo del botón de captura */
 .modal-content button {
-  margin-top: 10px;
+  margin: 10px;
+  margin-top: 20px;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
@@ -214,10 +200,12 @@
   color: white;
   cursor: pointer;
   font-size: 16px;
+  transition: all 0.3s;
 }
 
 .modal-content button:hover {
-  background-color: #e7191f;
+  background-color: #f6c1d1;
+  transition: all 0.3s;
 }
 
 /* Estilo del botón de cerrar */

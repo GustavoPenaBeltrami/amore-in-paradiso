@@ -149,7 +149,7 @@ export default function Cuestionario() {
 
             // Botón para capturar la imagen
             const captureButton = document.createElement('button');
-            captureButton.textContent = 'Capturar';
+            captureButton.textContent = 'Sacar foto';
             captureButton.onclick = () => {
                 canvas.width = video.videoWidth;
                 canvas.height = video.videoHeight;
@@ -334,7 +334,7 @@ export default function Cuestionario() {
                                                 <img
                                                     src={responses[10].foto}
                                                     alt="Foto"
-                                                    className="w-full max-w-[400px] rounded-lg"
+                                                    className="w-full max-w-[600px] rounded-md mt-16 mb-[-70px] max-h-[500px] shadow-lg mx-auto"
                                                 />
                                             </div>
                                         )}

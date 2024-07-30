@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Contacto() {
 
     return (
-        <div className="w-[90%] max-w-[1200px] mx-auto mt-5">
+        <div className="w-[90%] max-w-[1200px] mx-auto mt-5 mb-10 md:mb-0">
             <Image src="/sobre-mi.png" width={2000} height={1000} alt="Sobre mí" className="max-w-[500px] w-[90%] mx-auto" />
             <div className="texto-rojo flex lg:flex-row flex-col gap-10 mt-10 font-semibold text-lg items-center bg-[#ffe5ea] p-10 rounded-xl shadow-inner">
                 <Image src="/justina.jpg" width={1300} height={1500} alt="Justina Vigil Gargani" className="rounded-xl w-[400px] shadow-xl" />
