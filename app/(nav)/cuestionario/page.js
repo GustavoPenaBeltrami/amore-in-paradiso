@@ -1,6 +1,7 @@
 'use client';
-
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import toast from "react-hot-toast";
 
 const convertBlobToBase64 = (blob) => {
     return new Promise((resolve, reject) => {
@@ -16,7 +17,11 @@ const isIOS = () => {
 };
 
 export default function Cuestionario() {
+
+    const router = useRouter();
+
     const totalSteps = 10;
+    const [isLoading, setIsLoading] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const [error, setError] = useState("");
     const [responses, setResponses] = useState({
@@ -74,6 +79,7 @@ export default function Cuestionario() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        setIsLoading(true);
         try {
             const response = await fetch('/api', {
                 method: 'POST',
@@ -86,15 +92,20 @@ export default function Cuestionario() {
             const result = await response.json();
 
             if (result.ok) {
-                console.log('Respuesta correcta');
-                alert('¡Gracias por completar el cuestionario');
+                setIsLoading(false);
+                // alert('¡Gracias por completar el cuestionario');
+                toast.success('Cuestionario enviado', {style: {backgroundColor: '#f6aac1', color: '#fff'}, iconTheme: {primary: '#fff', secondary: '#f6aac1'}});
+                router.push('/');
+
             } else {
                 console.log('Respuesta incorrecta');
-                // Realiza las acciones necesarias para una respuesta incorrecta
+                toast.error('Error al enviar el cuestionario');
+                router.push('/');
             }
         } catch (error) {
             console.error('Error:', error);
-            // Maneja el error adecuadamente
+            toast.error('Error al enviar el cuestionario');
+            router.push('/');
         }
     };
 
@@ -120,22 +131,22 @@ export default function Cuestionario() {
             video.autoplay = true;
             video.style.width = '100%';
             video.style.height = 'auto';
-    
+
             const canvas = document.createElement('canvas');
             const context = canvas.getContext('2d');
             canvas.style.display = 'none'; // Oculta el canvas
-    
+
             // Crear el modal
             const modal = document.createElement('div');
             modal.className = 'modal';
-            
+
             const modalContent = document.createElement('div');
             modalContent.className = 'modal-content';
-    
+
             // Agregar el video y canvas al contenido del modal
             modalContent.appendChild(video);
             modalContent.appendChild(canvas);
-    
+
             // Botón para capturar la imagen
             const captureButton = document.createElement('button');
             captureButton.textContent = 'Capturar';
@@ -156,7 +167,7 @@ export default function Cuestionario() {
                 stream.getTracks().forEach(track => track.stop()); // Detener el stream de video
             };
             modalContent.appendChild(captureButton);
-    
+
             // Botón para cerrar el modal
             const closeButton = document.createElement('button');
             closeButton.textContent = 'Cerrar';
@@ -165,7 +176,7 @@ export default function Cuestionario() {
                 stream.getTracks().forEach(track => track.stop()); // Detener el stream de video
             };
             modalContent.appendChild(closeButton);
-    
+
             modal.appendChild(modalContent);
             document.body.appendChild(modal);
         } catch (error) {
@@ -255,113 +266,122 @@ export default function Cuestionario() {
     };
 
     return (
-        <form onSubmit={handleSubmit} className='w-[90%] max-w-[1000px] mx-auto mb-20'>
-            <p className='mt-10 text-right texto-rojo font-bold mx-auto'>{currentPage}/{totalSteps}</p>
-            <div className="w-full mx-auto max-w-[800px]">
-                <h1 className='w-full text-center block texto-rojo font-bold text-[40px] md:text-6xl'>Cuestionario</h1>
-                <h2 className='breathing w-full text-center block texto-rojo font-medium text-xl md:text-2xl mb-10'>
-                    {titles[currentPage]}
-                </h2>
-                {questions[currentPage]?.map((question) => (
-                    <div key={question.name} className="mb-4">
-                        <div className="texto-rojo ml-3 font-medium">{question.label}</div>
-                        {question.type === 'radio' ? (
-                            <div className="flex flex-row gap-2">
-                                {question.options.map(option => (
-                                    <label key={option} className="ml-2 flex items-center gap-2 cursor-pointer">
-                                        <input
-                                            type="radio"
-                                            name={question.name}
-                                            value={option}
-                                            checked={responses[currentPage][question.name] === option}
-                                            onChange={handleChange}
-                                            className="hidden"
-                                        />
-                                        <div
-                                            className={`rounded-full py-1 px-3 ${responses[currentPage][question.name] === option
-                                                ? 'bg-[#f6aac1] text-white transition-all duration-300'
-                                                : 'texto-rosa transition-all duration-300 borde-rosa'
-                                                }`}
-                                        >
-                                            {option}
-                                        </div>
-                                    </label>
-                                ))}
-                            </div>
-                        ) : (
-                            currentPage === 10 ? (
-                                <div>
-                                    <div className='flex items-center mt-2 ml-2'>
+        <>
+            <div className={`${isLoading ? "" : "hidden"} `}>
+                <div className="fixed top-0 left-0 z-50 w-full h-full fondo-rosa-2 flex items-center justify-center">
+                    <img src='/boton-hero.png' className='w-[75px] rotate-animation'></img>
 
-                                        <div className="file-upload">
+                </div>
+            </div>
+            <form onSubmit={handleSubmit} className='w-[90%] max-w-[1000px] mx-auto mb-20'>
+                <p className='mt-10 text-right texto-rojo font-bold mx-auto'>{currentPage}/{totalSteps}</p>
+                <div className="w-full mx-auto max-w-[800px]">
+                    <h1 className='w-full text-center block texto-rojo font-bold text-[40px] md:text-6xl'>Cuestionario</h1>
+                    <h2 className='breathing w-full text-center block texto-rojo font-medium text-xl md:text-2xl mb-10'>
+                        {titles[currentPage]}
+                    </h2>
+                    {questions[currentPage]?.map((question) => (
+                        <div key={question.name} className="mb-4">
+                            <div className="texto-rojo ml-3 font-medium">{question.label}</div>
+                            {question.type === 'radio' ? (
+                                <div className="flex flex-row gap-2">
+                                    {question.options.map(option => (
+                                        <label key={option} className="ml-2 flex items-center gap-2 cursor-pointer">
                                             <input
-                                                id="file-upload"
-                                                type="file"
-                                                accept="image/*"
-                                                onChange={handleFileChange}
-                                                className="file-input"
+                                                type="radio"
+                                                name={question.name}
+                                                value={option}
+                                                checked={responses[currentPage][question.name] === option}
+                                                onChange={handleChange}
+                                                className="hidden"
                                             />
-                                            <label htmlFor="file-upload" className="cursor-pointer file-label fondo-rosa-2 rounded-full text-white p-1 pb-2 px-2 hover:bg-[#f6c1d1] transition-all duration-300">Seleccionar Foto</label>
-                                        </div>
-                                        <button
-                                            type="button"
-                                            onClick={handleCameraClick}
-                                            className={`fondo-rosa-2 rounded-full text-white p-1 px-2 ml-3 hover:bg-[#f6c1d1] transition-all duration-300 ${isIOS() ? 'hidden' : ''}`}
-                                        >
-                                            Tomar Foto
-                                        </button>
-                                    </div>
-                                    {responses[10].foto && (
-                                        <div className="mt-4 mx-auto w-fit">
-                                            <img
-                                                src={responses[10].foto}
-                                                alt="Foto"
-                                                className="w-full max-w-[400px] rounded-lg"
-                                            />
-                                        </div>
-                                    )}
+                                            <div
+                                                className={`rounded-full py-1 px-3 ${responses[currentPage][question.name] === option
+                                                    ? 'bg-[#f6aac1] text-white transition-all duration-300'
+                                                    : 'texto-rosa transition-all duration-300 borde-rosa'
+                                                    }`}
+                                            >
+                                                {option}
+                                            </div>
+                                        </label>
+                                    ))}
                                 </div>
                             ) : (
-                                <input
-                                    type="text"
-                                    name={question.name}
-                                    value={responses[currentPage][question.name] || ''}
-                                    onChange={handleChange}
-                                    className="pl-6 focus:outline-none p-2 rounded-full text-white font-medium w-full fondo-rosa-2"
-                                />
-                            )
-                        )}
-                    </div>
-                ))}
-            </div>
-            <span className='texto-rojo p-4 rounded-lg italic font-medium text-center w-full block'>{error}</span>
-            <div className="mt-10 md:mt-20 flex flex-row justify-between">
-                <button
-                    type="button"
-                    onClick={handlePrevious}
-                    disabled={currentPage === 1}
-                    className={`transition-all duration-300 py-4 px-4 mr-2 ${currentPage === 1 ? "opacity-0" : 'fondo-rosa-2 rounded-full text-white rotate-[-90deg] hover:bg-[#f6c1d1]'}`}
-                >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"><path fill="#e7191f" d="M8.53 10.53a.75.75 0 1 1-1.06-1.06l4-4a.75.75 0 0 1 1.06 0l4 4a.75.75 0 1 1-1.06 1.06l-2.72-2.72v9.69a.75.75 0 0 1-1.5 0V7.81z" /></svg>
-                </button>
-                <button
-                    type="button"
-                    onClick={handleNext}
-                    disabled={currentPage === totalSteps}
-                    className={`transition-all duration-300 py-4 px-4 ${currentPage === totalSteps ? "opacity-0" : 'fondo-rosa-2 rounded-full text-white rotate-90 hover:bg-[#f6c1d1]'}`}
-                >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"><path fill="#e7191f" d="M8.53 10.53a.75.75 0 1 1-1.06-1.06l4-4a.75.75 0 0 1 1.06 0l4 4a.75.75 0 1 1-1.06 1.06l-2.72-2.72v9.69a.75.75 0 0 1-1.5 0V7.81z" /></svg>
+                                currentPage === 10 ? (
+                                    <div>
+                                        <div className='flex items-center mt-2 ml-2'>
 
-                </button>
-                {currentPage === totalSteps && (
+                                            <div className="file-upload">
+                                                <input
+                                                    id="file-upload"
+                                                    type="file"
+                                                    accept="image/*"
+                                                    onChange={handleFileChange}
+                                                    className="file-input"
+                                                />
+                                                <label htmlFor="file-upload" className="cursor-pointer file-label fondo-rosa-2 rounded-full text-white p-1 pb-2 px-2 hover:bg-[#f6c1d1] transition-all duration-300">Seleccionar Foto</label>
+                                            </div>
+                                            <button
+                                                type="button"
+                                                onClick={handleCameraClick}
+                                                className={`fondo-rosa-2 rounded-full text-white p-1 px-2 ml-3 hover:bg-[#f6c1d1] transition-all duration-300 ${isIOS() ? 'hidden' : ''}`}
+                                            >
+                                                Tomar Foto
+                                            </button>
+                                        </div>
+                                        {responses[10].foto && (
+                                            <div className="mt-4 mx-auto w-fit">
+                                                <img
+                                                    src={responses[10].foto}
+                                                    alt="Foto"
+                                                    className="w-full max-w-[400px] rounded-lg"
+                                                />
+                                            </div>
+                                        )}
+                                    </div>
+                                ) : (
+                                    <input
+                                        type="text"
+                                        name={question.name}
+                                        value={responses[currentPage][question.name] || ''}
+                                        onChange={handleChange}
+                                        className="pl-6 focus:outline-none p-2 rounded-full text-white font-medium w-full fondo-rosa-2"
+                                    />
+                                )
+                            )}
+                        </div>
+                    ))}
+                </div>
+                <span className='texto-rojo p-4 rounded-lg italic font-medium text-center w-full block'>{error}</span>
+                <div className="mt-10 md:mt-20 flex flex-row justify-between">
                     <button
-                        type="submit"
-                        className='fondo-rosa-2 rounded-full text-white py-4 px-8 hover:bg-[#f6c1d1] transition-all duration-300'
+                        type="button"
+                        onClick={handlePrevious}
+                        disabled={currentPage === 1}
+                        className={`transition-all duration-300 py-4 px-4 mr-2 ${currentPage === 1 ? "opacity-0" : 'fondo-rosa-2 rounded-full text-white rotate-[-90deg] hover:bg-[#f6c1d1]'}`}
                     >
-                        Enviar
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"><path fill="#e7191f" d="M8.53 10.53a.75.75 0 1 1-1.06-1.06l4-4a.75.75 0 0 1 1.06 0l4 4a.75.75 0 1 1-1.06 1.06l-2.72-2.72v9.69a.75.75 0 0 1-1.5 0V7.81z" /></svg>
                     </button>
-                )}
-            </div>
-        </form>
+                    <button
+                        type="button"
+                        onClick={handleNext}
+                        disabled={currentPage === totalSteps}
+                        className={`transition-all duration-300 py-4 px-4 ${currentPage === totalSteps ? "opacity-0" : 'fondo-rosa-2 rounded-full text-white rotate-90 hover:bg-[#f6c1d1]'}`}
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"><path fill="#e7191f" d="M8.53 10.53a.75.75 0 1 1-1.06-1.06l4-4a.75.75 0 0 1 1.06 0l4 4a.75.75 0 1 1-1.06 1.06l-2.72-2.72v9.69a.75.75 0 0 1-1.5 0V7.81z" /></svg>
+
+                    </button>
+                    {currentPage === totalSteps && (
+                        <button
+                            type="submit"
+                            className='fondo-rosa-2 rounded-full text-white py-4 px-8 hover:bg-[#f6c1d1] transition-all duration-300'
+                        >
+                            Enviar
+                        </button>
+                    )}
+                </div>
+            </form>
+        </>
+
     );
 }

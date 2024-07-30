@@ -2,6 +2,7 @@ import { Encode_Sans_Expanded } from "next/font/google";
 import "./globals.css";
 import { HeadbarDesktop } from "@/components/HeadbarDesktop";
 import { HeadbarMobile } from "@/components/HeadbarMobile";
+import { Toaster } from "react-hot-toast";
 
 const inter = Encode_Sans_Expanded({
   subsets: ["latin"],
@@ -20,6 +21,7 @@ export default function RootLayout({ children }) {
         <HeadbarDesktop />
         <HeadbarMobile />
         {children}
+        <Toaster />
         </body>
     </html>
   );
