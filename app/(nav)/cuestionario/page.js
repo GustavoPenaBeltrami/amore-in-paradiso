@@ -11,6 +11,10 @@ const convertBlobToBase64 = (blob) => {
     });
 };
 
+const isIOS = () => {
+    return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+};
+
 export default function Cuestionario() {
     const totalSteps = 10;
     const [currentPage, setCurrentPage] = useState(1);
@@ -302,7 +306,7 @@ export default function Cuestionario() {
                                         <button
                                             type="button"
                                             onClick={handleCameraClick}
-                                            className="fondo-rosa-2 rounded-full text-white p-1 px-2 ml-3 hover:bg-[#f6c1d1] transition-all duration-300"
+                                            className={`fondo-rosa-2 rounded-full text-white p-1 px-2 ml-3 hover:bg-[#f6c1d1] transition-all duration-300 ${isIOS() ? 'hidden' : ''}`}
                                         >
                                             Tomar Foto
                                         </button>
