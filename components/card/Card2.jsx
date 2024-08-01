@@ -36,13 +36,16 @@ export const Card2 = () => {
           className={`back flex flex-col items-center justify-center w-full h-full`}
         >
           <h3 className="font-semibold text-lg texto-rojo text-center mb-5">
-            Primer entrevista
+            Primera entrevista
           </h3>
           <p className="texto-rojo text-md text-center">
             Realizaremos una entrevista virtual para observar tu piel y reforzar
             la información obtenida.<br/><br/> Durante esta entrevista, haremos preguntas
             adicionales si es necesario, asegurándonos de comprender
             completamente tus necesidades y características.
+            <br/><br/>
+            Este servicio tiene un costo de <b>10.000 ARS</b>.
+            <br/>(Incluye las otras entrevistas).
           </p>
         </div>
       </div>

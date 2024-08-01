@@ -94,7 +94,7 @@ export default function Cuestionario() {
             if (result.ok) {
                 setIsLoading(false);
                 // alert('¡Gracias por completar el cuestionario');
-                toast.success('Cuestionario enviado', {style: {backgroundColor: '#f6aac1', color: '#fff'}, iconTheme: {primary: '#fff', secondary: '#f6aac1'}});
+                toast.success('Cuestionario enviado', { style: { backgroundColor: '#f6aac1', color: '#fff' }, iconTheme: { primary: '#fff', secondary: '#f6aac1' } });
                 router.push('/');
 
             } else {
@@ -338,6 +338,7 @@ export default function Cuestionario() {
                                                 />
                                             </div>
                                         )}
+
                                     </div>
                                 ) : (
                                     <input
@@ -353,6 +354,7 @@ export default function Cuestionario() {
                     ))}
                 </div>
                 <span className='texto-rojo p-4 rounded-lg italic font-medium text-center w-full block'>{error}</span>
+                <p className='text-center font-light texto-rojo text-sm w-full max-w-[700px] mx-auto'>Luego de enviar el formulario, nos contactaremos contigo en el menor tiempo posible para continuar con las asesorias. Recuerde que el precio de la misma es de <b>10.000 ARS</b></p>
                 <div className="mt-10 md:mt-20 flex flex-row justify-between">
                     <button
                         type="button"

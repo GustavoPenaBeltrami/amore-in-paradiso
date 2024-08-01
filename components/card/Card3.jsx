@@ -46,8 +46,8 @@ export const Card3 = () => {
             Segunda entrevista
           </h3>
           <p className="texto-rojo text-md text-center">
-            En el tercer paso, brindamos el apoyo domiciliario y proporcionamos
-            indicaciones personalizadas para tu rutina de cuidado de la piel.
+            En el tercer paso, brindamos informacion acerca de tu tipo de piel, el apoyo domiciliario y proporcionamos
+            indicaciones personalizadas para tu rutina de cuidado facial.
             <br/><br/>Esta sesión asegurará que tengas todas las herramientas y
             conocimientos necesarios para mantener tu piel saludable y radiante
             desde la comodidad de tu hogar.

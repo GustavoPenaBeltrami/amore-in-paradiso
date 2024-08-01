@@ -35,7 +35,7 @@ export const Card1 = () => {
           <p className="texto-rojo text-md text-center">
             Se trata de una encuesta donde recopilaremos infromacion valiosa
             sobre tu rutina diaria, hábitos, enfermedades y otros aspectos que
-            influyen en el cuidado de tu piel.<br/><br/> No te tomara mas de 5 minutos ♥
+            influyen en el cuidado de tu piel.<br/><br/> Hacer el formualrio es <b>gratis</b>. <br/><br/>No te tomara mas de 5 minutos ♥
           </p>
         </div>
 
