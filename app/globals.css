@@ -249,3 +249,11 @@
       transform: rotate(360deg);
   }
 }
+
+.contact-hover *{
+  transition: all 0.3s;
+}
+.contact-hover:hover > *{	
+  transition: all 0.3s;
+translate: 5px;
+}

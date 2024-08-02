@@ -74,7 +74,7 @@ export const HeadbarMobile = () => {
         ref={menuRef}
         className={`${
           isOpen ? "translate-x-[30px]" : "translate-x-[-110%]"
-        } absolute bg-[#ffd5dee4] w-full flex flex-col mt-[120px] text-lg gap-y-5 font-bold p-0 items-center transition-all duration-700 py-3 pt-5 z-50 shadow-xl `}
+        } absolute bg-[#ffd5dee4] w-full flex flex-col ${pathname === '/contacto' ? "md:mt-[164px] mt-[130px]" : "mt-[110px]"}   text-lg gap-y-5 font-bold p-0 items-center transition-all duration-700 py-3 pt-5 z-50 shadow-xl `}
       >
         <Link className="hover:text-white transition-all duration-300" href="/asesoria" onClick={handleLinkClick}>
           Asesoría
